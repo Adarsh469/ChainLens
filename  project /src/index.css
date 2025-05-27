@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background-dark text-white font-body;
+}
+
+.hexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.card {
+  @apply rounded-xl bg-background-card p-6 shadow-lg backdrop-blur-sm bg-opacity-80;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans font-semibold leading-tight;
+}
+
+p {
+  @apply leading-relaxed;
+}
+
+.persona-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.persona-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.persona-card:hover::after {
+  transform: rotate(30deg) translate(0, 50%);
+}
+
+.glassmorphism {
+  @apply backdrop-blur-lg bg-white/10 border border-white/20;
+}
+
+.wallet-input {
+  @apply bg-background-dark border border-gray-700 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all;
+}
+
+.btn-primary {
+  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-secondary-600 hover:bg-secondary-700 text-white font-medium py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95;
+}
+
+.btn-accent {
+  @apply bg-accent-600 hover:bg-accent-700 text-white font-medium py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95;
+}
